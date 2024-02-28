@@ -283,6 +283,7 @@ class OpenEphysRawIO(BaseRawIO):
             else:
                 event_filename = f"all_channels_{oe_index + 1}.events"
 
+        if os.path.exists(fullname):
             fullname = os.path.join(self.dirname, event_filename)
             event_info = read_file_header(fullname)
             self._event_sampling_rate = event_info["sampleRate"]
